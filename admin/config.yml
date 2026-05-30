@@ -1,0 +1,111 @@
+# لوحة تحكم اليامي للسفر — Decap CMS Configuration
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: 'إضافة "{{slug}}" في {{collection}}'
+    update: 'تعديل "{{slug}}" في {{collection}}'
+    delete: 'حذف "{{slug}}" من {{collection}}'
+    uploadMedia: 'رفع صورة "{{path}}"'
+    deleteMedia: 'حذف صورة "{{path}}"'
+
+media_folder: "images"
+public_folder: "/images"
+locale: 'ar'
+
+collections:
+  # ━━━━━━━━━━ الصفحات العربية ━━━━━━━━━━
+  - name: "pages_ar"
+    label: "🇸🇦 الصفحات العربية"
+    label_singular: "صفحة"
+    files:
+      - name: "home_ar"
+        label: "🏠 الصفحة الرئيسية"
+        file: "index.html"
+        editor:
+          preview: false
+        fields:
+          - { name: body, label: "محتوى الصفحة (HTML)", widget: text }
+
+      - name: "services_ar"
+        label: "🛎️ خدماتنا"
+        file: "services.html"
+        editor:
+          preview: false
+        fields:
+          - { name: body, label: "محتوى الصفحة (HTML)", widget: text }
+
+      - name: "destinations_ar"
+        label: "✈️ الوجهات"
+        file: "destinations.html"
+        editor:
+          preview: false
+        fields:
+          - { name: body, label: "محتوى الصفحة (HTML)", widget: text }
+
+      - name: "offers_ar"
+        label: "🎁 العروض الحصرية"
+        file: "offers.html"
+        editor:
+          preview: false
+        fields:
+          - { name: body, label: "محتوى الصفحة (HTML)", widget: text }
+
+      - name: "contact_ar"
+        label: "📞 تواصل معنا (الأقسام والأرقام)"
+        file: "contact.html"
+        editor:
+          preview: false
+        fields:
+          - { name: body, label: "محتوى الصفحة (HTML)", widget: text }
+
+  # ━━━━━━━━━━ English Pages ━━━━━━━━━━
+  - name: "pages_en"
+    label: "🇬🇧 الصفحات الإنجليزية"
+    label_singular: "Page"
+    files:
+      - name: "home_en"
+        label: "🏠 Home (English)"
+        file: "en/index.html"
+        editor: { preview: false }
+        fields:
+          - { name: body, label: "Page content (HTML)", widget: text }
+
+      - name: "services_en"
+        label: "🛎️ Services (English)"
+        file: "en/services.html"
+        editor: { preview: false }
+        fields:
+          - { name: body, label: "Page content (HTML)", widget: text }
+
+      - name: "destinations_en"
+        label: "✈️ Destinations (English)"
+        file: "en/destinations.html"
+        editor: { preview: false }
+        fields:
+          - { name: body, label: "Page content (HTML)", widget: text }
+
+      - name: "offers_en"
+        label: "🎁 Offers (English)"
+        file: "en/offers.html"
+        editor: { preview: false }
+        fields:
+          - { name: body, label: "Page content (HTML)", widget: text }
+
+      - name: "contact_en"
+        label: "📞 Contact (English)"
+        file: "en/contact.html"
+        editor: { preview: false }
+        fields:
+          - { name: body, label: "Page content (HTML)", widget: text }
+
+  # ━━━━━━━━━━ الصور والشعار ━━━━━━━━━━
+  - name: "uploads"
+    label: "🖼️ الصور والشعار"
+    folder: "images"
+    create: true
+    extension: "webp"
+    media_folder: ""
+    public_folder: ""
+    fields:
+      - { name: title, label: "اسم الصورة", widget: string }
