@@ -322,6 +322,48 @@ footer {
 }
 .page-hero p { color: var(--gold); font-size: 18px; letter-spacing: 2px; }
 
+/* Music Player */
+.music-toggle {
+  position: fixed; bottom: 24px; left: 100px;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  display: flex; align-items: center; justify-content: center;
+  color: var(--black); font-size: 22px; z-index: 999;
+  box-shadow: 0 10px 30px rgba(212,175,95,0.4);
+  cursor: pointer; border: 0;
+  transition: 0.3s;
+}
+.music-toggle:hover { transform: scale(1.1) rotate(15deg); }
+.music-toggle.playing { animation: spin 8s linear infinite; }
+.music-toggle.playing::after {
+  content: ''; position: absolute; inset: -6px;
+  border: 2px solid var(--gold); border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 2s linear infinite reverse;
+}
+@keyframes spin { from {transform: rotate(0);} to {transform: rotate(360deg);} }
+
+.music-tooltip {
+  position: fixed; bottom: 100px; left: 24px;
+  background: var(--dark); color: var(--gold);
+  padding: 12px 18px; border-radius: 12px;
+  border: 1px solid var(--gold);
+  font-size: 13px; z-index: 999;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  animation: bounce 2s ease-in-out infinite;
+  white-space: nowrap;
+}
+.music-tooltip.hidden { display: none; }
+.music-tooltip::after {
+  content: ''; position: absolute; bottom: -8px; left: 30px;
+  border: 8px solid transparent;
+  border-top-color: var(--gold);
+}
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
 /* Floating WhatsApp */
 .whatsapp-fab {
   position: fixed; bottom: 24px; left: 24px;

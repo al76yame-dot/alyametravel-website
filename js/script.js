@@ -22,6 +22,57 @@ document.querySelectorAll('.service-card, .dest-card, .offer-card, .stat-num').f
   observer.observe(el);
 });
 
+// Background Music Player
+(function() {
+  const audio = document.getElementById('bgMusic');
+  const toggle = document.getElementById('musicToggle');
+  const tooltip = document.getElementById('musicTooltip');
+  if (!audio || !toggle) return;
+
+  audio.volume = 0.25; // soft volume
+
+  // Restore user preference
+  const userPref = localStorage.getItem('alyame-music');
+
+  function play() {
+    audio.play().then(() => {
+      toggle.classList.add('playing');
+      toggle.innerHTML = '<i class="fas fa-pause"></i>';
+      if (tooltip) tooltip.classList.add('hidden');
+      localStorage.setItem('alyame-music', 'on');
+    }).catch(() => {
+      // autoplay blocked — wait for first interaction
+      const onFirstInteraction = () => {
+        audio.play().then(() => {
+          toggle.classList.add('playing');
+          toggle.innerHTML = '<i class="fas fa-pause"></i>';
+        });
+        document.removeEventListener('click', onFirstInteraction);
+        document.removeEventListener('touchstart', onFirstInteraction);
+      };
+      document.addEventListener('click', onFirstInteraction, { once: true });
+      document.addEventListener('touchstart', onFirstInteraction, { once: true });
+    });
+  }
+  function pause() {
+    audio.pause();
+    toggle.classList.remove('playing');
+    toggle.innerHTML = '<i class="fas fa-music"></i>';
+    localStorage.setItem('alyame-music', 'off');
+  }
+
+  toggle.addEventListener('click', () => {
+    if (audio.paused) play(); else pause();
+  });
+
+  // Auto-start if user previously enabled, or first visit
+  if (userPref !== 'off') {
+    setTimeout(play, 800);
+  } else {
+    if (tooltip) tooltip.classList.add('hidden');
+  }
+})();
+
 // Contact form -> mailto fallback (works without backend)
 const form = document.getElementById('contactForm');
 if (form) {
