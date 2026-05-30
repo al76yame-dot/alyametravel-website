@@ -1,0 +1,76 @@
+# Pages CMS configuration - لوحة تحكم اليامي للسفر
+# سجل دخول من https://app.pagescms.org بحساب GitHub
+
+content:
+  # ━━━━━━ الصفحات العربية ━━━━━━
+  - name: home_ar
+    label: "🏠 الصفحة الرئيسية (عربي)"
+    path: index.html
+    type: file
+    format: raw
+
+  - name: services_ar
+    label: "🛎️ خدماتنا (عربي)"
+    path: services.html
+    type: file
+    format: raw
+
+  - name: destinations_ar
+    label: "✈️ الوجهات (عربي)"
+    path: destinations.html
+    type: file
+    format: raw
+
+  - name: offers_ar
+    label: "🎁 العروض الحصرية (عربي)"
+    path: offers.html
+    type: file
+    format: raw
+
+  - name: contact_ar
+    label: "📞 تواصل معنا (عربي)"
+    path: contact.html
+    type: file
+    format: raw
+
+  # ━━━━━━ English Pages ━━━━━━
+  - name: home_en
+    label: "🏠 Home (English)"
+    path: en/index.html
+    type: file
+    format: raw
+
+  - name: services_en
+    label: "🛎️ Services (English)"
+    path: en/services.html
+    type: file
+    format: raw
+
+  - name: destinations_en
+    label: "✈️ Destinations (English)"
+    path: en/destinations.html
+    type: file
+    format: raw
+
+  - name: offers_en
+    label: "🎁 Offers (English)"
+    path: en/offers.html
+    type: file
+    format: raw
+
+  - name: contact_en
+    label: "📞 Contact (English)"
+    path: en/contact.html
+    type: file
+    format: raw
+
+  # ━━━━━━ الصور والشعار ━━━━━━
+  - name: images
+    label: "🖼️ مكتبة الصور والشعار"
+    path: images
+    type: media
+    extensions: [jpg, jpeg, png, webp, gif, svg]
+
+media:
+  input: images
+  output: images
