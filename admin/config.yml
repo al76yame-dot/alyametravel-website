@@ -99,13 +99,5 @@ collections:
         fields:
           - { name: body, label: "Page content (HTML)", widget: text }
 
-  # ━━━━━━━━━━ الصور والشعار ━━━━━━━━━━
-  - name: "uploads"
-    label: "🖼️ الصور والشعار"
-    folder: "images"
-    create: true
-    extension: "webp"
-    media_folder: ""
-    public_folder: ""
-    fields:
-      - { name: title, label: "اسم الصورة", widget: string }
+# ملاحظة: الصور تُدار من زر "Media" في الأعلى داخل لوحة التحكم
+# تقدر ترفع صور جديدة، تستبدل الشعار، أو تحذف من هناك مباشرة
