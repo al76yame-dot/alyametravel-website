@@ -1,3 +1,46 @@
+// ━━━━━━━━━━ Currency Switcher ━━━━━━━━━━
+(function() {
+  const rates = { USD: 1, LYD: 5.45, EGP: 49.5 };
+  const symbols = {
+    USD: { code: '$', name: 'دولار', flag: '🇺🇸' },
+    LYD: { code: 'د.ل', name: 'دينار', flag: '🇱🇾' },
+    EGP: { code: 'ج.م', name: 'جنيه', flag: '🇪🇬' }
+  };
+
+  function updatePrices(currency) {
+    document.querySelectorAll('[data-usd]').forEach(el => {
+      const usd = parseFloat(el.dataset.usd);
+      if (isNaN(usd)) return;
+      const converted = Math.round(usd * rates[currency]);
+      const formatted = converted.toLocaleString('en-US');
+      el.textContent = currency === 'USD'
+        ? '$' + formatted
+        : formatted + ' ' + symbols[currency].code;
+    });
+    localStorage.setItem('alyame-currency', currency);
+    document.querySelectorAll('.currency-switcher button').forEach(b => {
+      b.classList.toggle('active', b.dataset.currency === currency);
+    });
+  }
+
+  // Build the switcher if not present
+  if (!document.querySelector('.currency-switcher') && document.querySelector('[data-usd]')) {
+    const switcher = document.createElement('div');
+    switcher.className = 'currency-switcher';
+    switcher.innerHTML = `
+      <button data-currency="USD" title="دولار أمريكي">🇺🇸 USD</button>
+      <button data-currency="LYD" title="دينار ليبي">🇱🇾 LYD</button>
+      <button data-currency="EGP" title="جنيه مصري">🇪🇬 EGP</button>
+    `;
+    document.body.appendChild(switcher);
+    switcher.addEventListener('click', e => {
+      const btn = e.target.closest('button');
+      if (btn) updatePrices(btn.dataset.currency);
+    });
+    updatePrices(localStorage.getItem('alyame-currency') || 'USD');
+  }
+})();
+
 // Mobile menu
 const toggle = document.querySelector('.mobile-toggle');
 const navLinks = document.querySelector('.nav-links');

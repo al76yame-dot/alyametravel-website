@@ -98,13 +98,113 @@ a[href^="tel:"], .dept-person a, .contact-item strong a {
 .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,169,97,0.3); }
 .mobile-toggle { display: none; background: none; border: 0; color: var(--gold); font-size: 28px; cursor: pointer; }
 
-/* Hero */
+/* Hero with Slideshow */
 .hero {
   min-height: 100vh; display: flex; align-items: center;
-  background:
-    linear-gradient(135deg, rgba(5,13,28,0.92), rgba(10,30,61,0.7)),
-    url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&q=80') center/cover;
   position: relative; padding-top: 80px;
+  overflow: hidden;
+  background: var(--black);
+}
+.hero-slideshow {
+  position: absolute; inset: 0; z-index: 0;
+}
+.hero-slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0;
+  animation: heroSlide 32s linear infinite;
+  transition: opacity 1.5s ease;
+}
+.hero-slide::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(5,13,28,0.85), rgba(10,30,61,0.65));
+}
+.hero-slide:nth-child(1) { animation-delay: 0s; }
+.hero-slide:nth-child(2) { animation-delay: 8s; }
+.hero-slide:nth-child(3) { animation-delay: 16s; }
+.hero-slide:nth-child(4) { animation-delay: 24s; }
+@keyframes heroSlide {
+  0% { opacity: 0; transform: scale(1.1); }
+  3% { opacity: 1; transform: scale(1.08); }
+  25% { opacity: 1; transform: scale(1); }
+  28% { opacity: 0; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1); }
+}
+.hero .container { position: relative; z-index: 2; }
+
+/* Hero slide indicators */
+.hero-dots {
+  position: absolute; bottom: 32px; left: 50%;
+  transform: translateX(-50%); z-index: 3;
+  display: flex; gap: 10px;
+}
+.hero-dots span {
+  width: 32px; height: 3px; background: rgba(255,255,255,0.3);
+  border-radius: 2px; position: relative; overflow: hidden;
+}
+.hero-dots span::after {
+  content: ''; position: absolute; inset: 0;
+  background: var(--gold);
+  transform-origin: left;
+  animation: dotProgress 8s linear infinite;
+}
+.hero-dots span:nth-child(1)::after { animation-delay: 0s; }
+.hero-dots span:nth-child(2)::after { animation-delay: 8s; }
+.hero-dots span:nth-child(3)::after { animation-delay: 16s; }
+.hero-dots span:nth-child(4)::after { animation-delay: 24s; }
+@keyframes dotProgress {
+  0%, 100% { transform: scaleX(0); }
+  3.125%, 25% { transform: scaleX(1); }
+  28.125%, 100% { transform: scaleX(0); }
+}
+
+/* Currency Switcher */
+.currency-switcher {
+  position: fixed; top: 90px; left: 24px; z-index: 998;
+  background: rgba(5,13,28,0.95); backdrop-filter: blur(10px);
+  border: 1px solid var(--gold); border-radius: 50px;
+  padding: 6px; display: flex; gap: 4px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.currency-switcher button {
+  background: transparent; border: 0; color: var(--text-muted);
+  padding: 8px 14px; border-radius: 50px;
+  font-family: inherit; font-weight: 700; font-size: 13px;
+  cursor: pointer; transition: 0.3s;
+  display: flex; align-items: center; gap: 4px;
+}
+.currency-switcher button:hover { color: var(--gold); }
+.currency-switcher button.active {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--black);
+}
+@media (max-width: 600px) {
+  .currency-switcher { top: auto; bottom: 90px; left: 24px; }
+  .currency-switcher button { padding: 6px 10px; font-size: 11px; }
+}
+
+/* Premium Service Icons */
+.service-icon {
+  position: relative; overflow: hidden;
+}
+.service-icon::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.3), transparent);
+}
+.service-card.premium {
+  border: 2px solid var(--gold);
+  background: linear-gradient(135deg, var(--gray), var(--dark));
+  position: relative;
+}
+.service-card.premium::before {
+  content: 'VIP'; position: absolute; top: 12px; left: 12px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--black); font-size: 10px; font-weight: 900;
+  padding: 4px 10px; border-radius: 50px; letter-spacing: 2px;
+}
+.service-card.premium .service-icon {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+  box-shadow: 0 8px 24px rgba(212,175,95,0.4);
 }
 .hero-content { max-width: 720px; }
 .hero-badge {
