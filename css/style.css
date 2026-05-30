@@ -73,6 +73,13 @@ header {
   color: var(--black) !important; padding: 12px 28px; border-radius: 50px;
   font-weight: 700;
 }
+.lang-switch {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 14px; border: 1px solid var(--gold);
+  border-radius: 50px; color: var(--gold) !important;
+  font-size: 13px; font-weight: 700; letter-spacing: 1px;
+}
+.lang-switch:hover { background: var(--gold); color: var(--black) !important; }
 .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,169,97,0.3); }
 .mobile-toggle { display: none; background: none; border: 0; color: var(--gold); font-size: 28px; cursor: pointer; }
 
