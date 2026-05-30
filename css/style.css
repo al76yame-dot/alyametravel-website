@@ -37,28 +37,43 @@ img { max-width: 100%; display: block; }
 /* Header */
 header {
   position: fixed; top: 0; right: 0; left: 0;
-  background: rgba(5,13,28,0.96);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(212,175,95,0.25);
+  background: rgba(5,13,28,0.97);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(212,175,95,0.3);
   z-index: 1000;
-  padding: 12px 0;
+  padding: 8px 0;
 }
 .nav {
   display: flex; justify-content: space-between; align-items: center;
 }
 .logo {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 14px;
 }
-.logo img { height: 60px; width: auto; display: block; }
+.logo img {
+  height: 90px; width: auto; display: block;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 14px rgba(212,175,95,0.55)) brightness(1.05) contrast(1.08);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.logo:hover img { transform: scale(1.05); filter: drop-shadow(0 0 22px rgba(240,208,137,0.8)) brightness(1.1) contrast(1.1); }
 .logo-text { display: flex; flex-direction: column; line-height: 1; }
 .logo-text strong {
-  font-size: 22px; font-weight: 900;
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  font-size: 28px; font-weight: 900; letter-spacing: 3px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 2px 8px rgba(212,175,95,0.2);
 }
-.logo-text small { color: var(--gold); font-weight: 500; font-size: 11px; letter-spacing: 2px; margin-top: 4px; }
+.logo-text small { color: var(--gold); font-weight: 600; font-size: 11px; letter-spacing: 3px; margin-top: 6px; text-transform: uppercase; }
+
+/* Phone numbers always LTR */
+a[href^="tel:"], .dept-person a, .contact-item strong a {
+  direction: ltr;
+  unicode-bidi: embed;
+  display: inline-block;
+}
+.dept-person a { font-family: 'Courier New', monospace; }
 .nav-links { display: flex; gap: 32px; list-style: none; }
 .nav-links a {
   color: var(--text); font-weight: 500; font-size: 15px; position: relative;
