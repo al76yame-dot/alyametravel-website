@@ -1,0 +1,20 @@
+{
+  "name": "ALYAME Travel & Tourism",
+  "short_name": "ALYAME",
+  "description": "اليامي للسفر والسياحة - بوابتك إلى العالم",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a1e3d",
+  "theme_color": "#d4af5f",
+  "icons": [
+    {
+      "src": "/images/logo.webp",
+      "sizes": "any",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["travel", "business"]
+}
