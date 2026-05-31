@@ -50,11 +50,35 @@ header {
   display: flex; align-items: center; gap: 14px;
 }
 .logo img {
-  height: 130px; width: auto; display: block;
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+  height: 170px; width: auto; display: block;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.6));
   transition: transform 0.4s ease, filter 0.4s ease;
+  animation: logoFloat 4s ease-in-out infinite;
 }
-.logo:hover img { transform: scale(1.05); filter: drop-shadow(0 6px 18px rgba(212,175,95,0.4)); }
+.logo:hover img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 8px 24px rgba(212,175,95,0.5));
+  animation-play-state: paused;
+}
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    filter: drop-shadow(0 6px 16px rgba(0,0,0,0.6));
+  }
+  25% {
+    transform: translateY(-6px) rotate(-1.5deg);
+    filter: drop-shadow(0 10px 20px rgba(212,175,95,0.35));
+  }
+  50% {
+    transform: translateY(-10px) rotate(0deg);
+    filter: drop-shadow(0 14px 24px rgba(212,175,95,0.45));
+  }
+  75% {
+    transform: translateY(-6px) rotate(1.5deg);
+    filter: drop-shadow(0 10px 20px rgba(212,175,95,0.35));
+  }
+}
+header { padding: 4px 0; }
 .logo-text { display: flex; flex-direction: column; line-height: 1; }
 .logo-text strong {
   font-size: 28px; font-weight: 900; letter-spacing: 3px;
