@@ -65,55 +65,62 @@ document.querySelectorAll('.service-card, .dest-card, .offer-card, .stat-num').f
   observer.observe(el);
 });
 
-// Background Audio Player (دعاء السفر)
+// Background Audio Player (SoundCloud Widget)
 (function() {
-  const audio = document.getElementById('bgMusic');
+  const iframe = document.getElementById('bgMusic');
   const toggle = document.getElementById('musicToggle');
   const tooltip = document.getElementById('musicTooltip');
-  if (!audio || !toggle) return;
+  if (!iframe || !toggle) return;
 
-  audio.volume = 0.6; // appropriate volume for recitation
-
-  // Restore user preference
+  let widget = null;
+  let isPlaying = false;
   const userPref = localStorage.getItem('alyame-music');
 
-  function play() {
-    audio.play().then(() => {
+  function initWidget() {
+    if (typeof SC === 'undefined') {
+      setTimeout(initWidget, 300);
+      return;
+    }
+    widget = SC.Widget(iframe);
+    widget.bind(SC.Widget.Events.READY, () => {
+      widget.setVolume(60);
+      if (userPref !== 'off') {
+        const onFirstInteraction = () => {
+          widget.play();
+          document.removeEventListener('click', onFirstInteraction);
+          document.removeEventListener('touchstart', onFirstInteraction);
+        };
+        document.addEventListener('click', onFirstInteraction, { once: true });
+        document.addEventListener('touchstart', onFirstInteraction, { once: true });
+      } else {
+        if (tooltip) tooltip.classList.add('hidden');
+      }
+    });
+    widget.bind(SC.Widget.Events.PLAY, () => {
+      isPlaying = true;
       toggle.classList.add('playing');
       toggle.innerHTML = '<i class="fas fa-pause"></i>';
       if (tooltip) tooltip.classList.add('hidden');
       localStorage.setItem('alyame-music', 'on');
-    }).catch(() => {
-      // autoplay blocked — wait for first interaction
-      const onFirstInteraction = () => {
-        audio.play().then(() => {
-          toggle.classList.add('playing');
-          toggle.innerHTML = '<i class="fas fa-pause"></i>';
-        });
-        document.removeEventListener('click', onFirstInteraction);
-        document.removeEventListener('touchstart', onFirstInteraction);
-      };
-      document.addEventListener('click', onFirstInteraction, { once: true });
-      document.addEventListener('touchstart', onFirstInteraction, { once: true });
     });
-  }
-  function pause() {
-    audio.pause();
-    toggle.classList.remove('playing');
-    toggle.innerHTML = '<i class="fas fa-music"></i>';
-    localStorage.setItem('alyame-music', 'off');
+    widget.bind(SC.Widget.Events.PAUSE, () => {
+      isPlaying = false;
+      toggle.classList.remove('playing');
+      toggle.innerHTML = '<i class="fas fa-music"></i>';
+    });
   }
 
   toggle.addEventListener('click', () => {
-    if (audio.paused) play(); else pause();
+    if (!widget) return;
+    if (isPlaying) {
+      widget.pause();
+      localStorage.setItem('alyame-music', 'off');
+    } else {
+      widget.play();
+    }
   });
 
-  // Auto-start if user previously enabled, or first visit
-  if (userPref !== 'off') {
-    setTimeout(play, 800);
-  } else {
-    if (tooltip) tooltip.classList.add('hidden');
-  }
+  initWidget();
 })();
 
 // Contact form -> mailto fallback (works without backend)
