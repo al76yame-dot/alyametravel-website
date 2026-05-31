@@ -23,14 +23,14 @@
     });
   }
 
-  // Build the switcher if not present
-  if (!document.querySelector('.currency-switcher') && document.querySelector('[data-usd]')) {
+  // Always build the switcher on every page
+  if (!document.querySelector('.currency-switcher')) {
     const switcher = document.createElement('div');
     switcher.className = 'currency-switcher';
     switcher.innerHTML = `
-      <button data-currency="USD" title="دولار أمريكي">🇺🇸 USD</button>
-      <button data-currency="LYD" title="دينار ليبي">🇱🇾 LYD</button>
-      <button data-currency="EGP" title="جنيه مصري">🇪🇬 EGP</button>
+      <button data-currency="USD" title="دولار أمريكي">USD</button>
+      <button data-currency="LYD" title="دينار ليبي">LYD</button>
+      <button data-currency="EGP" title="جنيه مصري">EGP</button>
     `;
     document.body.appendChild(switcher);
     switcher.addEventListener('click', e => {
