@@ -4,75 +4,67 @@
 
   <!-- Arabic Pages -->
   <url>
-    <loc>https://alyametravel.com/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <loc>https://al76yame-dot.github.io/alyametravel-website/</loc>
+    <lastmod>2026-05-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://alyametravel.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://alyametravel.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://alyametravel.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://al76yame-dot.github.io/alyametravel-website/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://al76yame-dot.github.io/alyametravel-website/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://al76yame-dot.github.io/alyametravel-website/"/>
   </url>
   <url>
-    <loc>https://alyametravel.com/services.html</loc>
-    <lastmod>2026-05-30</lastmod>
+    <loc>https://al76yame-dot.github.io/alyametravel-website/services.html</loc>
+    <lastmod>2026-05-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://alyametravel.com/services.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://alyametravel.com/en/services.html"/>
   </url>
   <url>
-    <loc>https://alyametravel.com/destinations.html</loc>
-    <lastmod>2026-05-30</lastmod>
+    <loc>https://al76yame-dot.github.io/alyametravel-website/destinations.html</loc>
+    <lastmod>2026-05-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://alyametravel.com/destinations.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://alyametravel.com/en/destinations.html"/>
   </url>
   <url>
-    <loc>https://alyametravel.com/offers.html</loc>
-    <lastmod>2026-05-30</lastmod>
+    <loc>https://al76yame-dot.github.io/alyametravel-website/offers.html</loc>
+    <lastmod>2026-05-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://alyametravel.com/offers.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://alyametravel.com/en/offers.html"/>
   </url>
   <url>
-    <loc>https://alyametravel.com/contact.html</loc>
-    <lastmod>2026-05-30</lastmod>
+    <loc>https://al76yame-dot.github.io/alyametravel-website/contact.html</loc>
+    <lastmod>2026-05-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://alyametravel.com/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://alyametravel.com/en/contact.html"/>
   </url>
 
   <!-- English Pages -->
   <url>
-    <loc>https://alyametravel.com/en/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <loc>https://al76yame-dot.github.io/alyametravel-website/en/</loc>
+    <lastmod>2026-05-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://alyametravel.com/en/services.html</loc>
-    <lastmod>2026-05-30</lastmod>
+    <loc>https://al76yame-dot.github.io/alyametravel-website/en/services.html</loc>
+    <lastmod>2026-05-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://alyametravel.com/en/destinations.html</loc>
-    <lastmod>2026-05-30</lastmod>
+    <loc>https://al76yame-dot.github.io/alyametravel-website/en/destinations.html</loc>
+    <lastmod>2026-05-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://alyametravel.com/en/offers.html</loc>
-    <lastmod>2026-05-30</lastmod>
+    <loc>https://al76yame-dot.github.io/alyametravel-website/en/offers.html</loc>
+    <lastmod>2026-05-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://alyametravel.com/en/contact.html</loc>
-    <lastmod>2026-05-30</lastmod>
+    <loc>https://al76yame-dot.github.io/alyametravel-website/en/contact.html</loc>
+    <lastmod>2026-05-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
