@@ -42,7 +42,10 @@ header {
   border-bottom: 1px solid rgba(212,175,95,0.3);
   z-index: 1000;
   padding: 8px 0;
+  overflow: visible;
 }
+header .nav { overflow: visible; }
+.logo { position: relative; z-index: 1001; }
 .nav {
   display: flex; justify-content: space-between; align-items: center;
 }
@@ -50,10 +53,12 @@ header {
   display: flex; align-items: center; gap: 14px;
 }
 .logo img {
-  height: 170px; width: auto; display: block;
-  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.6));
+  height: 150px; width: auto; display: block;
+  margin-bottom: -55px;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.7)) drop-shadow(0 0 30px rgba(212,175,95,0.25));
   transition: transform 0.4s ease, filter 0.4s ease;
   animation: logoFloat 4s ease-in-out infinite;
+  position: relative; z-index: 1001;
 }
 .logo:hover img {
   transform: scale(1.08);
@@ -140,7 +145,8 @@ a[href^="tel:"], .dept-person a, .contact-item strong a {
 }
 .hero-slide::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(5,13,28,0.85), rgba(10,30,61,0.65));
+  background: linear-gradient(135deg, rgba(5,13,28,0.92), rgba(10,30,61,0.85)),
+              radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%);
 }
 .hero-slide:nth-child(1) { animation-delay: 0s; }
 .hero-slide:nth-child(2) { animation-delay: 8s; }
@@ -239,6 +245,15 @@ a[href^="tel:"], .dept-person a, .contact-item strong a {
 .hero h1 {
   font-size: clamp(36px, 6vw, 72px); font-weight: 900;
   color: var(--white); line-height: 1.2; margin-bottom: 24px;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,1), 0 0 40px rgba(5,13,28,0.8);
+}
+.hero p {
+  text-shadow: 0 2px 12px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,1);
+}
+.hero-badge {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  background: rgba(5,13,28,0.5);
+  backdrop-filter: blur(4px);
 }
 .hero h1 .accent {
   background: linear-gradient(135deg, var(--gold), var(--gold-light));
