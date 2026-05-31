@@ -65,14 +65,14 @@ document.querySelectorAll('.service-card, .dest-card, .offer-card, .stat-num').f
   observer.observe(el);
 });
 
-// Background Music Player
+// Background Audio Player (دعاء السفر)
 (function() {
   const audio = document.getElementById('bgMusic');
   const toggle = document.getElementById('musicToggle');
   const tooltip = document.getElementById('musicTooltip');
   if (!audio || !toggle) return;
 
-  audio.volume = 0.25; // soft volume
+  audio.volume = 0.6; // appropriate volume for recitation
 
   // Restore user preference
   const userPref = localStorage.getItem('alyame-music');

@@ -86,14 +86,14 @@ header .nav { overflow: visible; }
 header { padding: 4px 0; }
 .logo-text { display: flex; flex-direction: column; line-height: 1; }
 .logo-text strong {
-  font-size: 28px; font-weight: 900; letter-spacing: 3px;
+  font-size: 24px; font-weight: 900; letter-spacing: 2px;
   background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 2px 8px rgba(212,175,95,0.2);
 }
-.logo-text small { color: var(--gold); font-weight: 600; font-size: 11px; letter-spacing: 3px; margin-top: 6px; text-transform: uppercase; }
+.logo-text small { color: var(--gold-light); font-weight: 700; font-size: 13px; letter-spacing: 2px; margin-top: 4px; white-space: nowrap; }
 
 /* Phone numbers always LTR */
 a[href^="tel:"], .dept-person a, .contact-item strong a {
@@ -256,8 +256,10 @@ a[href^="tel:"], .dept-person a, .contact-item strong a {
   backdrop-filter: blur(4px);
 }
 .hero h1 .accent {
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  background: linear-gradient(135deg, #f0d089, #ffd700, #d4af5f);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6)) drop-shadow(0 2px 8px rgba(0,0,0,0.5));
 }
 .hero p { font-size: 19px; color: var(--text); margin-bottom: 40px; }
 .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
